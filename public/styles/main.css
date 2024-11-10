@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+}
+
+#posts-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+/*.form-fields {
+  display: flex;
+  flex-direction: column;
+  color: red;
+}*/
+
+input {
+  margin: 120px;
+}
+
+@media (max-width: 525px) {
+  #posts-list {
+    grid-template-columns: none;
+  }
+}
+
+@media (525px <= width <= 1050px) {
+  #posts-list {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (min-width: 1601px) {
+  #posts-list {
+    grid-template-columns: auto auto auto;
+  }
+}

@@ -1,0 +1,37 @@
+<%- include("./partials/header.ejs") %>
+ <!-- For sizing and flex, grid stuff its going to be more complex so don't use bootstrap for that, just use bootstrap for cards and other styling -->
+  <main>
+    <div class="container-fluid"> 
+      <div class="row">
+        <div class="card-group"> <!-- Add row cols and fix the rows things of this 
+          and add a header file and a footer file -->
+          <% posts.forEach(post => {%>
+          <div class="col col-sm-6 col-md-6 col-lg-4">
+            <div class="card m-2">
+              <div class="card-body">
+                <h5 class="card-title"><%=post.title%></h5>
+                <p class="card-text"><%=post.author%></p>
+                <p class="card-text"><%=post.content%></p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <small class="text-body-secondary"><a data-bs-toggle="collapse" href="#collapse-<%= post.id %>" role="button">Options</a></small>
+                <small class="text-body-secondary"><%=post.date%></small>
+              </div>
+              <div class="collapse" id="collapse-<%= post.id %>">
+                <div class="card card-body d-flex flex-row">
+                  <a class="edit me-2 text-decoration-none text-primary" href="/edit/<%= post.id %>">Edit</a>
+                  <a class="delete text-decoration-none text-danger" href="/api/posts/delete/<%= post.id %>">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%});%>
+          <div class="text-center container-fluid mt-3">
+            <p class="text-secondary">You have reached the end of the road, dear traveler... but your journey doesn't stop here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include("./partials/footer.ejs") %>
