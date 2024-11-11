@@ -7,14 +7,21 @@ ul {
   grid-template-columns: auto auto auto;
 }
 
-/*.form-fields {
-  display: flex;
-  flex-direction: column;
-  color: red;
-}*/
+.form-control, .form-focus {
+  outline-width: 3px !important;
+  border-color: #ffe8bb !important;
+}
 
-input {
-  margin: 120px;
+.form-control:focus, .form-select:valid:focus {
+  box-shadow: none !important;
+  outline: 3px solid #FFC857 !important;
+  border-color: #ffe8bb !important;
+  transition: outline-width 0.1s linear !important;
+}
+
+#cardBord:hover {
+  outline: solid 4px #426b69bf;
+  transition: outline 0.2s ease-in-out;
 }
 
 @media (max-width: 525px) {

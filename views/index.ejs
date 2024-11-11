@@ -1,13 +1,18 @@
 <%- include("./partials/header.ejs") %>
  <!-- For sizing and flex, grid stuff its going to be more complex so don't use bootstrap for that, just use bootstrap for cards and other styling -->
+ <header class="d-flex justify-content-between m-4 text-center">
+  <h1>Posts</h1>
+    <a href="/new">
+      <button type="button" id="newPostBtn" class="align-self-center btn btn-primary" href="/new">New Post</button>
+    </a>
+  </header>
   <main>
     <div class="container-fluid"> 
       <div class="row">
-        <div class="card-group"> <!-- Add row cols and fix the rows things of this 
-          and add a header file and a footer file -->
+        <div class="card-group">
           <% posts.forEach(post => {%>
           <div class="col col-sm-6 col-md-6 col-lg-4">
-            <div class="card m-2">
+            <div class="card m-2" id="cardBord" style="">
               <div class="card-body">
                 <h5 class="card-title"><%=post.title%></h5>
                 <p class="card-text"><%=post.author%></p>
@@ -20,7 +25,7 @@
               <div class="collapse" id="collapse-<%= post.id %>">
                 <div class="card card-body d-flex flex-row">
                   <a class="edit me-2 text-decoration-none text-primary" href="/edit/<%= post.id %>">Edit</a>
-                  <a class="delete text-decoration-none text-danger" href="/api/posts/delete/<%= post.id %>">Delete</a>
+                  <a class="delete text-decoration-none text-danger" id="delete" href="/api/posts/delete/<%= post.id %>">Delete</a>
                 </div>
               </div>
             </div>
@@ -33,5 +38,6 @@
       </div>
     </div>
   </main>
+  <audio id="myAudio" src="./whoosh.mp3"></audio>
 
   <%- include("./partials/footer.ejs") %>

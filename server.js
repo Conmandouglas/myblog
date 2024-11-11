@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts`);
     console.log(response);
-    res.render("index.ejs", { posts: response.data });
+    res.render("index.ejs", { posts: response.data, title: 'Welcome to my Blog' });
   } catch (error) {
     res.status(500).json({ message: "Error fetching posts" });
   }
@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
 
 //the route triggered by new button [WORKS]
 app.get("/new", (req, res) => {
-  res.render("modify.ejs", { heading: "New Post", submit: "Create Post" });
+  res.render("modify.ejs", { heading: "New Post", submit: "Create Post", title: 'New Post' });
 });
 
 app.get("/edit/:id", async (req, res) => {
@@ -43,6 +43,7 @@ app.get("/edit/:id", async (req, res) => {
       heading: "Edit Post",
       submit: "Update Post",
       post: response.data,
+      title: 'Edit Post'
     });
   } catch (error) {
     res.status(500).json({ message: "Error fetching post" });
@@ -61,7 +62,7 @@ app.post("/api/posts", async (req, res) => {
   }
 });
 
-// Partially update a post
+// Partially update a post [WOKS]
 app.post("/api/posts/:id", async (req, res) => {
   console.log("called");
   try {
@@ -76,14 +77,17 @@ app.post("/api/posts/:id", async (req, res) => {
   }
 });
 
-app.get("/api/posts/delete/:id", async (req, res) => { //api/posts/delete is from the index.ejs
+app.get("/api/posts/delete/:id", async (req, res) => { //api/posts/delete is from the index.ejs [WORKS]
   try {
     await axios.delete(`${API_URL}/posts/${req.params.id}`);
     res.redirect("/");
   } catch (error) {
     res.status(500).json({ message: "Error deleting post" });
   }
-})
+});
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

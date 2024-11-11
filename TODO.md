@@ -1,8 +1,14 @@
-[] add project to github to track history
+[y] add project to github to track history
 [y] add styles to modify.js and push
-[] add more color to website and personality
+[y] add more color to website and personality
+[] form outline and trasntion in post page
+  the post page is not responding to custom CSS styles, just when editing post not posting a post, even through its same modify.ejs file
+[] add outline and transition for form in edit page
+[] add to staging area and to github
+[] add background color to posts/body or both
 [] publish on github sites, post in a Q&A
-Now go on to databases and have fun. I want a job with a challenge 
+  
+**Now go on to databases and have fun. I want a job with a challenge**
 
 
 ** remember to push to github after adding it to the staging area
